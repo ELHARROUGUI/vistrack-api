@@ -20,10 +20,10 @@ db.sequelize = sequelize;
 
 const Info = sequelize.define("info", {
   x: {
-    type: Sequelize.NUMBER
+    type: Sequelize.FLOAT
   },
   y: {
-    type: Sequelize.NUMBER
+    type: Sequelize.FLOAT
   }
 });
 
