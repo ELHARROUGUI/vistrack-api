@@ -3,7 +3,7 @@ const Info = db.info;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.title) {
+  if (!req.body.x) {
     res.status(400).send({
       message: "Info content can not be empty!"
     });
@@ -11,7 +11,8 @@ exports.create = (req, res) => {
   }
 
   const info = {
-    title: req.body.title
+    x: req.body.x,
+    y: req.body.y || Date.now()
   };
 
   Info.create(info)
@@ -26,8 +27,8 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  const x = req.query.x;
+  var condition = x ? { x: { [Op.like]: `%${x}%` } } : null;
 
   Info.findAll({ where: condition })
     .then((data) => {
