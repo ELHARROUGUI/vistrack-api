@@ -23,7 +23,7 @@ const Info = sequelize.define("info", {
     type: Sequelize.FLOAT
   },
   y: {
-    type: Sequelize.STRING
+    type: Sequelize.FLOAT
   }
 });
 

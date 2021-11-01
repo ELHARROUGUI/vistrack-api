@@ -3,6 +3,7 @@ const Info = db.info;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
+  console.log(">req.body: ", req.body);
   if (!req.body.x) {
     res.status(400).send({
       message: "Info content can not be empty!"
@@ -12,7 +13,7 @@ exports.create = (req, res) => {
 
   const info = {
     x: req.body.x,
-    y: req.body.y || Date.now()
+    y: req.body.y
   };
 
   Info.create(info)
